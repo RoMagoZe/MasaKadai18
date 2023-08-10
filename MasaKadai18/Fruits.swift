@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct Items {
+struct Item {
     var name: String
-    var check: Bool
+    var isChecked: Bool
 }
 
 struct Fruits {
-    static let defaultItems: [Items] = [Items(name: "りんご", check: false),
-                                        Items(name: "みかん", check: true),
-                                        Items(name: "バナナ", check: false),
-                                        Items(name: "パイナップル", check: true)]
+    static let defaultItems: [Item] = [Item(name: "りんご", isChecked: false),
+                                        Item(name: "みかん", isChecked: true),
+                                        Item(name: "バナナ", isChecked: false),
+                                        Item(name: "パイナップル", isChecked: true)]
 }

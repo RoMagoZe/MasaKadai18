@@ -13,7 +13,7 @@ struct AddParameter {
 }
 
 struct EditParameter {
-    let name: String
+    let item: Item
     let cancel: () -> Void
     let save: (String) -> Void
 }
@@ -38,7 +38,7 @@ class SecondViewController: UIViewController {
         case .add:
             inputTextField.text = ""
         case .edit(let parameter):
-            inputTextField.text = parameter.name
+            inputTextField.text = parameter.item.name
         }
     }
 

@@ -36,7 +36,7 @@ class ViewController: UIViewController {
                 self?.dismiss(animated: true)
             },
             save: { [weak self] newName in
-                self?.items.append(Items(name: newName, check: false))
+                self?.items.append(Item(name: newName, isChecked: false))
                 self?.tableView.reloadData()
 
                 self?.dismiss(animated: true)
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         guard let indexPath = selectedIndexPath else { return }
 
         secondVC.mode = .edit(EditParameter(
-            name: items[indexPath.row].name,
+            item: items[indexPath.row],
             cancel: {[weak self] in
                 self?.dismiss(animated: true)
             },
@@ -74,14 +74,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
         let item = items[indexPath.row]
         cell.textLabel?.text = item.name
-        cell.imageView?.image = item.check ? checkMark : nil
+        cell.imageView?.image = item.isChecked ? checkMark : nil
 
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        items[indexPath.row].check.toggle()
+        items[indexPath.row].isChecked.toggle()
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 
